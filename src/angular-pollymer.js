@@ -82,6 +82,7 @@
                 $http(this._config).then(
                     function success(data) {
                         if (data.status > 0) {
+                          self._delayNext = true;
                             self.deferred.resolve(data);
                             if (self.recurring && data.status >= 200 && data.status < 300) {
                                 self._start();
